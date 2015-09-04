@@ -53,7 +53,8 @@
 
 				<section id="the-docker-book">
           <h1>The Docker Book</h1>
-					<a href="http://www.dockerbook.com/" target="_blank"><img width="287" heigth="374" src="http://ecx.images-amazon.com/images/I/51VL0BxrnKL._SX381_BO1,204,203,200_.jpg"/></a>
+					<a href="http://www.dockerbook.com/" target="_blank">
+						<img width="287" heigth="374" src="http://ecx.images-amazon.com/images/I/51VL0BxrnKL._SX381_BO1,204,203,200_.jpg"/></a>
 					<p>Sign up for updates!</p>
         </section>
 
@@ -73,7 +74,7 @@
         </section>
 
 				<section id="benefits">
-          <h1>Benefits</h1>
+          <h1 style="color:DeepSkyBlue">Benefits</h1>
         </section>
 
 				<section>
@@ -83,7 +84,66 @@
 				<section data-background="http://i.telegraph.co.uk/multimedia/archive/03133/the-eye-of-sauron_3133429b.jpg">
 				</section>
 
-				<section>...</section>
+				<section>TODO</section>
+
+				<section>
+					<h1>How about you?</h1>
+				</section>
+
+				<section id="machine">
+          <h1 style="color:DeepSkyBlue">Machine</h1>
+					<aside class="notes">
+            <ul>
+              <li>Not covered in the book :(</li>
+            </ul>
+        </section>
+
+				<section>
+					<h1>Creates Docker Hosts</h1>
+					<aside class="notes">
+            <ul>
+              <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
+							<li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
+							<li>A "machine" is the combination of a Docker host and a configured client.</li>
+							<li>A great learning/experimentation tool</li>
+            </ul>
+				</section>
+
+				<section>
+					<h1>Whiteboard!</h1>
+				</section>
+
+				<section>
+					<h2>Docker Environment</h2>
+					<pre><code data-trim class="bash">
+alias de="env | grep DOCKER_"
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Docker Machine</h2>
+					<pre><code data-trim class="bash">
+docker-machine
+docker-machine ls
+docker-machine create --driver virtualbox foo
+docker-machine ls
+docker-machine env foo
+de
+eval "$(docker-machine env foo)"
+de
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Lab</h2>
+					<ol>
+						<li>Delete foo</li>
+						<li>Create workshop</li>
+						<li>Set workshop as your Docker environment</li>
+					</ol>
+					</code></pre>
+				</section>
+
 			</div>
 
 		</div>
