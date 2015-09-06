@@ -49,6 +49,14 @@
 				<section id="goal">
           <h1>Goal</h1>
           <p>Give you enough knowledge about containers/Docker in general and Amphora in particular to confidently create content for all of it. In doing so, give you the basis for more self-directed learning.</p>
+					<aside class="notes">
+            <ul>
+							<li>This needs to be very interactive</li>
+              <li>More knowledge in the audience than there is on stage</li>
+							<li>File issues!</li>
+							<li>Pair up</li>
+            </ul>
+					</aside>
         </section>
 
 				<section id="the-docker-book">
@@ -67,7 +75,7 @@
 							<li><a href="#/daemon">Daemon</a></li>
               <li><a href="#/client">Client</a></li>
               <li><a href="#/images">Images</a></li>
-							<li><a href="#/hub">Hub</a></li>
+							<li><a href="#/registries">Registries</a></li>
 							<li><a href="#/compose">Compose</a></li>
             </ol>
           </span>
@@ -100,6 +108,10 @@
 
 				<section>
 					<h1>Creates Docker Hosts</h1>
+				</section>
+
+				<section>
+					<h1>Whiteboard!</h1>
 					<aside class="notes">
             <ul>
               <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
@@ -107,10 +119,7 @@
 							<li>A "machine" is the combination of a Docker host and a configured client.</li>
 							<li>A great learning/experimentation tool</li>
             </ul>
-				</section>
-
-				<section>
-					<h1>Whiteboard!</h1>
+					</aside>
 				</section>
 
 				<section>
@@ -141,6 +150,39 @@ de
 						<li>Create workshop</li>
 						<li>Set workshop as your Docker environment</li>
 					</ol>
+					</code></pre>
+				</section>
+
+				<section id="daemon">
+          <h1 style="color:DeepSkyBlue">Daemon</h1>
+					<p>Chapter 2, 8</p>
+        </section>
+
+				<section>
+					<h1>Runs Docker Containers</h1>
+					<aside class="notes">
+            <ul>
+              <li>Can kind of think of it like Cloud Servers/Nova</li>
+							<li>Port 2376</li>
+							<li>API</li>
+            </ul>
+					</aside>
+				</section>
+
+				<section>
+					<h1><a href="https://docs.docker.com/reference/api/docker_remote_api/" target="_blank">Docker API</a></h1>
+				</section>
+
+				<section>
+					<h1>Whiteboard!</h1>
+				</section>
+
+				<section>
+					<h2>Docker Daemon</h2>
+					<pre><code data-trim class="bash">
+docker info
+curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pem https://$(docker-machine ip workshop):2376/images/json
+# https://github.com/docker/docker/issues/16107
 					</code></pre>
 				</section>
 
