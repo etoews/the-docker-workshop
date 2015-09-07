@@ -40,10 +40,14 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
+
+<!-- ********************************************************************** -->
+
 				<section id="welcome">
           <h1>The Docker Workshop</h1>
 					<img src="http://ypereirareis.github.io/assets/images/posts/docker.svg"/>
           <h4><a href="http://rack.to/the-docker-workshop">rack.to/the-docker-workshop</a></h4>
+					<p style="font-size: 50%;">Use the arrow keys to navigate</p>
         </section>
 
 				<section id="goal">
@@ -55,7 +59,8 @@
 							<li>This needs to be very interactive</li>
               <li>More knowledge in the audience than there is on stage</li>
 							<li>Being up here is learning for me too</li>
-							<li>File issues!</li>
+							<li>Some stuff I just haven't used so it's omitted, call that out</li>
+							<li>File issues or send PRs!</li>
 							<li>Pair up</li>
             </ul>
 					</aside>
@@ -64,7 +69,7 @@
 				<section id="the-docker-book">
           <h1>The Docker Book</h1>
 					<a href="http://www.dockerbook.com/" target="_blank">
-						<img width="287" heigth="374" src="http://ecx.images-amazon.com/images/I/51VL0BxrnKL._SX381_BO1,204,203,200_.jpg"/></a>
+						<img width="250" heigth="auto" src="http://ecx.images-amazon.com/images/I/51VL0BxrnKL._SX381_BO1,204,203,200_.jpg"/></a>
 					<p>Sign up for updates!</p>
         </section>
 
@@ -79,9 +84,12 @@
               <li><a href="#/images">Images</a></li>
 							<li><a href="#/registries">Registries</a></li>
 							<li><a href="#/compose">Compose</a></li>
+							<li><a href="#/conclusion">Conclusion</a></li>
             </ol>
           </span>
         </section>
+
+<!-- ********************************************************************** -->
 
 				<section id="benefits">
           <h1 style="color:DeepSkyBlue">Benefits</h1>
@@ -94,7 +102,45 @@
 				<section data-background="http://i.telegraph.co.uk/multimedia/archive/03133/the-eye-of-sauron_3133429b.jpg">
 				</section>
 
-				<section>TODO</section>
+				<section>
+					<h1>Leaner Than VMs</h1>
+					<table>
+						<tr>
+							<td><img src="https://www.docker.com/sites/default/files/what-is-docker-diagram.png" width="400" height="auto"></td>
+							<td><img src="https://www.docker.com/sites/default/files/what-is-vm-diagram.png" width="400" height="auto"></td>
+						</tr>
+						<tr>
+							<td style="text-align:center">VMs</td>
+							<td style="text-align:center">Containers</td>
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h1>Easy Environments</h1>
+					<pre><code data-trim class="bash">
+docker run \
+  --rm \
+  --volume=$(pwd):/srv/jekyll \
+	--tty \
+	--publish 4000:4000 \
+	jekyll/jekyll:pages \
+	jekyll serve --watch --drafts --force_polling
+					</code></pre>
+				</section>
+
+				<section>
+					<h1>Better DX for Containerized Systems</h1>
+					<aside class="notes">
+            <ul>
+              <li>Don't have to understand an apps deployment as much in order to integrate it into your own system</li>
+            </ul>
+					</aside>
+				</section>
+
+				<section>
+					<h1>Cloud Agnostic</h1>
+				</section>
 
 				<section>
 					<h1>Questions?</h1>
@@ -108,6 +154,7 @@
             <ul>
               <li>Not covered in the book :(</li>
             </ul>
+					</aside>
         </section>
 
 				<section>
@@ -286,7 +333,7 @@ docker ps -a
 				<section>
 					<h2>Client</h2>
 					<pre><code data-trim class="bash">
-docker run --detach --publish 8080:8080 jenkins
+docker run --detach --publish 8080:2368 ghost
 open http://$(docker-machine ip workshop):8080
 docker exec -it $(docker ps -q) /bin/bash # look around
 exit
@@ -312,6 +359,128 @@ docker rm $(docker ps -a -q)
 				</section>
 
 <!-- ********************************************************************** -->
+
+				<section id="images">
+					<h1 style="color:DeepSkyBlue">Images</h1>
+					<p>Chapter 4</p>
+				</section>
+
+				<section>
+					<h1>Building Blocks for Containers</h1>
+					<p><a href="https://docs.docker.com/reference/builder/" target="_blank">Reference</a>
+					<aside class="notes">
+						<ul>
+							<li>You can kinda sorta think of it like an image for a VM, but really it's a very different beast</li>
+							<li>Layered filesystems</li>
+							<li>Top layer is rw and the layers below are ro</li>
+							<li>The Git analogy but we won't be using commit</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h1>Whiteboard!</h1>
+				</section>
+
+				<section>
+					<h2>Images</h2>
+					<pre><code data-trim class="bash">
+docker images
+docker pull ubuntu:12.04
+docker images
+docker search python
+					</code></pre>
+				</section>
+
+				<section>
+					<h1>Dockerfile</h1>
+					<aside class="notes">
+						<ul>
+							<li>Uses a basic DSL with instructions for building Docker images</li>
+							<li>Provides a repeatable, transparent, and idempotent mechanism for creating images</li>
+							<li>Each instruction adds a new layer to the image and then commits the image</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Dockerfile Setup</h2>
+					<pre><code data-trim class="bash">
+mkdir static_web
+cd static_web
+touch Dockerfile
+# edit Dockerfile
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Dockerfile</h2>
+					<pre><code data-trim class="bash">
+FROM ubuntu:14.04
+MAINTAINER Firstname Lastname "firstname.lastname@example.com"
+RUN apt-get update
+RUN apt-get install -y nginx
+ENV MESSAGE "Hello Docker"
+WORKDIR /usr/share/nginx/html/
+RUN echo "$MESSAGE" >> index.html
+COPY Dockerfile Dockerfile.html
+EXPOSE 80
+CMD nginx -g "daemon off;"
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Images</h2>
+					<pre><code data-trim class="bash">
+docker build --tag="my-docker-hub-username/static_web:1.0" .
+docker images
+sed -i "" "s/nginx/ngin/g" Dockerfile
+docker build --tag="my-docker-hub-username/static_web:1.1" .
+docker run -it last-good-image-id /bin/bash
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Images</h2>
+					<pre><code data-trim class="bash">
+docker run --detach --publish-all my-docker-hub-username/static_web:1.0
+docker ps
+HOST=$(docker-machine ip workshop)
+PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' $(docker ps -q))
+open http://$HOST:$PORT
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Lab</h2>
+					<ol>
+						<li>Create your own Dockerfile</li>
+						<li>Build an image</li>
+						<li>Run a container</li>
+						<li>Suggestions: Tomcat, Jekyll, Apache</li>
+						<li>Stop the container and remove it</li>
+					</ol>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+<!-- ********************************************************************** -->
+
+				<section id="conclusion">
+					<h1 style="color:DeepSkyBlue">Conclusion</h1>
+				</section>
+
+				<section>
+					<h1>Keep a Crib Sheet</h1>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
 
 			</div>
 
