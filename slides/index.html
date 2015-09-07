@@ -51,8 +51,10 @@
           <p>Give you enough knowledge about containers/Docker in general and Amphora in particular to confidently create content for all of it. In doing so, give you the basis for more self-directed learning.</p>
 					<aside class="notes">
             <ul>
+							<li>Going broad. Looking at the whole ecosystem. It will be up to you to go deep.</li>
 							<li>This needs to be very interactive</li>
               <li>More knowledge in the audience than there is on stage</li>
+							<li>Being up here is learning for me too</li>
 							<li>File issues!</li>
 							<li>Pair up</li>
             </ul>
@@ -95,8 +97,10 @@
 				<section>TODO</section>
 
 				<section>
-					<h1>How about you?</h1>
+					<h1>Questions?</h1>
 				</section>
+
+<!-- ********************************************************************** -->
 
 				<section id="machine">
           <h1 style="color:DeepSkyBlue">Machine</h1>
@@ -108,10 +112,6 @@
 
 				<section>
 					<h1>Creates Docker Hosts</h1>
-				</section>
-
-				<section>
-					<h1>Whiteboard!</h1>
 					<aside class="notes">
             <ul>
               <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
@@ -120,6 +120,10 @@
 							<li>A great learning/experimentation tool</li>
             </ul>
 					</aside>
+				</section>
+
+				<section>
+					<h1>Whiteboard!</h1>
 				</section>
 
 				<section>
@@ -150,8 +154,13 @@ de
 						<li>Create workshop</li>
 						<li>Set workshop as your Docker environment</li>
 					</ol>
-					</code></pre>
 				</section>
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+<!-- ********************************************************************** -->
 
 				<section id="daemon">
           <h1 style="color:DeepSkyBlue">Daemon</h1>
@@ -185,6 +194,124 @@ curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pe
 # https://github.com/docker/docker/issues/16107
 					</code></pre>
 				</section>
+
+				<section>
+					<h1>No Lab</h1>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+<!-- ********************************************************************** -->
+
+				<section id="client">
+          <h1 style="color:DeepSkyBlue">Client</h1>
+					<p>Chapter 3</p>
+        </section>
+
+				<section>
+					<h1>Controls the Docker Daemon</h1>
+					<p><a href="https://docs.docker.com/reference/commandline/daemon/" target="_blank">Reference</a>
+					<aside class="notes">
+            <ul>
+              <li>CLI for the API</li>
+							<li>Commands for working with containers</li>
+							<li>Commands for working with images</li>
+            </ul>
+					</aside>
+				</section>
+
+				<section>
+					<h1>Whiteboard!</h1>
+				</section>
+
+				<section>
+					<h2>Client</h2>
+					<pre><code data-trim class="bash">
+de
+docker
+docker version
+docker ps # why "ps"?
+docker run --interactive --tty ubuntu /bin/bash
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Ubuntu Container</h2>
+					<pre><code data-trim class="bash">
+uname -a
+hostname
+more /cat/hosts
+ip a
+ps -aux
+echo "Hello Docker" > README.txt
+exit
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Client</h2>
+					<pre><code data-trim class="bash">
+docker ps
+docker ps --all
+docker ps --all --quiet
+docker start $(docker ps -a -q)
+docker ps
+docker attach $(docker ps -q)
+more README.txt
+exit
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Client</h2>
+					<pre><code data-trim class="bash">
+docker ps
+docker run -it ubuntu /bin/bash # -it?
+more README.txt
+exit
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Client</h2>
+					<pre><code data-trim class="bash">
+docker ps -a
+docker rm $(docker ps -a -q)
+docker ps -a
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Client</h2>
+					<pre><code data-trim class="bash">
+docker run --detach --publish 8080:8080 jenkins
+open http://$(docker-machine ip workshop):8080
+docker exec -it $(docker ps -q) /bin/bash # look around
+exit
+docker ps
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Lab</h2>
+					<ol>
+						<li>Run an nginx container in detached mode</li>
+						<li>Bind the container port 80 to the host port 80</li>
+						<li>View the default nginx landing page</li>
+						<li>Bonus Points: Append to the default nginx landing page</li>
+						<li>Stop the container and remove it</li>
+					</ol>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+<!-- ********************************************************************** -->
 
 			</div>
 
