@@ -1,133 +1,133 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>The Docker Workshop</title>
+    <title>The Docker Workshop</title>
 
-		<meta name="description" content="A Docker Workshop based on The Docker Book by James Turnbull">
-		<meta name="author" content="Everett Toews">
+    <meta name="description" content="A Docker Workshop based on The Docker Book by James Turnbull">
+    <meta name="author" content="Everett Toews">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/night.css" id="theme">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
 
 <!-- ********************************************************************** -->
 
-				<section id="welcome">
+        <section id="welcome">
           <h1>The Docker Workshop</h1>
-					<img src="img/docker.svg"/>
+          <img src="img/docker.svg"/>
           <h4><a href="http://rack.to/the-docker-workshop">rack.to/the-docker-workshop</a></h4>
-					<p style="font-size: 50%;">Use the arrow keys to navigate</p>
+          <p style="font-size: 50%;">Use the arrow keys to navigate</p>
         </section>
 
-				<section id="goal">
+        <section id="goal">
           <h1>Goal</h1>
           <p>Give you enough knowledge about containers/Docker in general and Amphora in particular to confidently create content for all of it. In doing so, give you the basis for more self-directed learning.</p>
-					<aside class="notes">
+          <aside class="notes">
             <ul>
-							<li>Going broad. Looking at the whole ecosystem. It will be up to you to go deep.</li>
-							<li>This needs to be very interactive</li>
+              <li>Going broad. Looking at the whole ecosystem. It will be up to you to go deep.</li>
+              <li>This needs to be very interactive</li>
               <li>More knowledge in the audience than there is on stage</li>
-							<li>Being up here is learning for me too</li>
-							<li>Some stuff I just haven't used so it's omitted, call that out</li>
-							<li>File issues or send PRs!</li>
-							<li>Pair up</li>
+              <li>Being up here is learning for me too</li>
+              <li>Some stuff I just haven't used so it's omitted, call that out</li>
+              <li>File issues or send PRs!</li>
+              <li>Pair up</li>
             </ul>
-					</aside>
+          </aside>
         </section>
 
-				<section id="the-docker-book">
+        <section id="the-docker-book">
           <h1>The Docker Book</h1>
-					<a href="http://www.dockerbook.com/" target="_blank">
-						<img width="250" heigth="auto" src="img/the-docker-book.jpg"/></a>
-					<p>Sign up for updates!</p>
+          <a href="http://www.dockerbook.com/" target="_blank">
+            <img width="250" heigth="auto" src="img/the-docker-book.jpg"/></a>
+          <p>Sign up for updates!</p>
         </section>
 
-				<section>
+        <section>
           <span style="white-space: nowrap;">
             <h1>Agenda</h1>
             <ol>
               <li><a href="#/benefits">Benefits</a></li>
               <li><a href="#/machine">Machine</a></li>
-							<li><a href="#/daemon">Daemon</a></li>
+              <li><a href="#/daemon">Daemon</a></li>
               <li><a href="#/client">Client</a></li>
               <li><a href="#/images">Images</a></li>
-							<li><a href="#/registries">Registries</a></li>
-							<li><a href="#/compose">Compose</a></li>
-							<li><a href="#/conclusion">Conclusion</a></li>
+              <li><a href="#/registries">Registries</a></li>
+              <li><a href="#/compose">Compose</a></li>
+              <li><a href="#/conclusion">Conclusion</a></li>
             </ol>
           </span>
         </section>
 
 <!-- ********************************************************************** -->
 
-				<section id="benefits">
+        <section id="benefits">
           <h1 style="color:DeepSkyBlue">Benefits</h1>
-					<p>Chapter 1</p>
+          <p>Chapter 1</p>
         </section>
 
-				<section>
+        <section>
           <h2>Why?</h2>
         </section>
 
-				<section data-background="img/sauron.jpg">
-				</section>
+        <section data-background="img/sauron.jpg">
+        </section>
 
-				<section>
-					<h1>Leaner Than VMs</h1>
-					<table>
-						<tr>
-							<td><img src="img/what-is-docker-diagram.png" width="400" height="auto"></td>
-							<td><img src="img/what-is-vm-diagram.png" width="400" height="auto"></td>
-						</tr>
-						<tr>
-							<td style="text-align:center">VMs</td>
-							<td style="text-align:center">Containers</td>
-						</tr>
-					</table>
-				</section>
+        <section>
+          <h1>Leaner Than VMs</h1>
+          <table>
+            <tr>
+              <td><img src="img/what-is-docker-diagram.png" width="400" height="auto"></td>
+              <td><img src="img/what-is-vm-diagram.png" width="400" height="auto"></td>
+            </tr>
+            <tr>
+              <td style="text-align:center">VMs</td>
+              <td style="text-align:center">Containers</td>
+            </tr>
+          </table>
+        </section>
 
-				<section>
-					<h1>Better Resource Utilization</h1>
-				</section>
+        <section>
+          <h1>Better Resource Utilization</h1>
+        </section>
 
-				<section>
-					<h1>Application Packaging</h1>
-				</section>
+        <section>
+          <h1>Application Packaging</h1>
+        </section>
 
-				<section>
-					<h1>Easy Environments</h1>
-					<pre><code data-trim class="bash">
+        <section>
+          <h1>Easy Environments</h1>
+          <pre><code data-trim class="bash">
 docker run \
   --rm \
   --volume=$(pwd):/srv/jekyll \
@@ -135,72 +135,72 @@ docker run \
   --publish 4000:4000 \
   jekyll/jekyll:pages \
   jekyll serve --watch --drafts --force_polling
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h1>Better DX for Containerized Systems</h1>
-					<aside class="notes">
+        <section>
+          <h1>Better DX for Containerized Systems</h1>
+          <aside class="notes">
             <ul>
               <li>Don't have to understand an apps deployment as much in order to integrate it into your own system</li>
             </ul>
-					</aside>
-				</section>
+          </aside>
+        </section>
 
-				<section>
-					<h1>Reproducible Environments for Dev/Ops</h1>
-				</section>
+        <section>
+          <h1>Reproducible Environments for Dev/Ops</h1>
+        </section>
 
-				<section>
-					<h1>Process Isolation</h1>
-				</section>
+        <section>
+          <h1>Process Isolation</h1>
+        </section>
 
-				<section>
-					<h1>Cloud Agnostic</h1>
-				</section>
+        <section>
+          <h1>Cloud Agnostic</h1>
+        </section>
 
-				<section>
-					<h1>More?</h1>
-					<h1>Questions?</h1>
-				</section>
+        <section>
+          <h1>More?</h1>
+          <h1>Questions?</h1>
+        </section>
 
 <!-- ********************************************************************** -->
 
-				<section id="machine">
+        <section id="machine">
           <h1 style="color:DeepSkyBlue">Machine</h1>
-					<aside class="notes">
+          <aside class="notes">
             <ul>
               <li>Not covered in the book :(</li>
             </ul>
-					</aside>
+          </aside>
         </section>
 
-				<section>
-					<h1>Creates Docker Hosts</h1>
-					<aside class="notes">
+        <section>
+          <h1>Creates Docker Hosts</h1>
+          <aside class="notes">
             <ul>
               <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
-							<li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
-							<li>A "machine" is the combination of a Docker host and a configured client.</li>
-							<li>A great learning/experimentation tool</li>
+              <li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
+              <li>A "machine" is the combination of a Docker host and a configured client.</li>
+              <li>A great learning/experimentation tool</li>
             </ul>
-					</aside>
-				</section>
+          </aside>
+        </section>
 
-				<section>
-					<h1>Whiteboard!</h1>
-				</section>
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
 
-				<section>
-					<h2>Docker Environment</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Docker Environment</h2>
+          <pre><code data-trim class="bash">
 alias de="env | grep DOCKER_"
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Docker Machine</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Docker Machine</h2>
+          <pre><code data-trim class="bash">
 docker-machine
 docker-machine ls
 docker-machine create --driver virtualbox foo
@@ -209,103 +209,103 @@ docker-machine env foo
 de
 eval "$(docker-machine env foo)"
 de
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Lab</h2>
-					<ol>
-						<li>Delete foo</li>
-						<li>Create workshop</li>
-						<li>Set workshop as your Docker environment</li>
-					</ol>
-				</section>
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Delete foo</li>
+            <li>Create workshop</li>
+            <li>Set workshop as your Docker environment</li>
+          </ol>
+        </section>
 
-				<section>
-					<h1>Questions?</h1>
-				</section>
+        <section>
+          <h1>Questions?</h1>
+        </section>
 
 <!-- ********************************************************************** -->
 
-				<section id="daemon">
+        <section id="daemon">
           <h1 style="color:DeepSkyBlue">Daemon</h1>
-					<p>Chapter 2, 8</p>
+          <p>Chapter 2, 8</p>
         </section>
 
-				<section>
-					<h1>Runs Docker Containers</h1>
-					<aside class="notes">
+        <section>
+          <h1>Runs Docker Containers</h1>
+          <aside class="notes">
             <ul>
               <li>Can kind of think of it like Cloud Servers/Nova</li>
-							<li>Port 2376</li>
-							<li>API</li>
+              <li>Port 2376</li>
+              <li>API</li>
             </ul>
-					</aside>
-				</section>
+          </aside>
+        </section>
 
-				<section>
-					<h1><a href="https://docs.docker.com/reference/api/docker_remote_api/" target="_blank">Docker API</a></h1>
-				</section>
+        <section>
+          <h1><a href="https://docs.docker.com/reference/api/docker_remote_api/" target="_blank">Docker API</a></h1>
+        </section>
 
-				<section>
-					<h1>Whiteboard!</h1>
-				</section>
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
 
-				<section>
-					<h2>Docker Daemon</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Docker Daemon</h2>
+          <pre><code data-trim class="bash">
 docker info
 curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pem https://$(docker-machine ip workshop):2376/images/json
 # :(
-					</code></pre>
-					<p><a href="https://github.com/docker/docker/issues/16107" target="_blank">Error when trying to access API via curl</a></p>
-				</section>
+          </code></pre>
+          <p><a href="https://github.com/docker/docker/issues/16107" target="_blank">Error when trying to access API via curl</a></p>
+        </section>
 
-				<section>
-					<h1>No Lab</h1>
-				</section>
+        <section>
+          <h1>No Lab</h1>
+        </section>
 
-				<section>
-					<h1>Questions?</h1>
-				</section>
+        <section>
+          <h1>Questions?</h1>
+        </section>
 
 <!-- ********************************************************************** -->
 
-				<section id="client">
+        <section id="client">
           <h1 style="color:DeepSkyBlue">Client</h1>
-					<p>Chapter 3</p>
+          <p>Chapter 3</p>
         </section>
 
-				<section>
-					<h1>Controls the Docker Daemon</h1>
-					<p><a href="https://docs.docker.com/reference/commandline/daemon/" target="_blank">Reference</a>
-					<aside class="notes">
+        <section>
+          <h1>Controls the Docker Daemon</h1>
+          <p><a href="https://docs.docker.com/reference/commandline/daemon/" target="_blank">Reference</a>
+          <aside class="notes">
             <ul>
               <li>CLI for the API</li>
-							<li>Commands for working with containers</li>
-							<li>Commands for working with images</li>
+              <li>Commands for working with containers</li>
+              <li>Commands for working with images</li>
             </ul>
-					</aside>
-				</section>
+          </aside>
+        </section>
 
-				<section>
-					<h1>Whiteboard!</h1>
-				</section>
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
 
-				<section>
-					<h2>Client</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Client</h2>
+          <pre><code data-trim class="bash">
 de
 docker
 docker version
 docker ps # why "ps"?
 docker run --interactive --tty ubuntu /bin/bash
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Ubuntu Container</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Ubuntu Container</h2>
+          <pre><code data-trim class="bash">
 uname -a
 hostname
 more /cat/hosts
@@ -313,12 +313,12 @@ ip a
 ps -aux
 echo "Hello Docker" > README.txt
 exit
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Client</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Client</h2>
+          <pre><code data-trim class="bash">
 docker ps
 docker ps --all
 docker ps --all --quiet
@@ -327,31 +327,31 @@ docker ps
 docker attach $(docker ps -q)
 more README.txt
 exit
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Client</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Client</h2>
+          <pre><code data-trim class="bash">
 docker ps
 docker run -it ubuntu /bin/bash # -it?
 more README.txt
 exit
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Client</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Client</h2>
+          <pre><code data-trim class="bash">
 docker ps -a
 docker rm $(docker ps -a -q)
 docker ps -a
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Client</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Client</h2>
+          <pre><code data-trim class="bash">
 docker run --detach --publish 8080:2368 ghost
 open http://$(docker-machine ip workshop):8080
 docker exec -it $(docker ps -q) /bin/bash # look around
@@ -359,83 +359,83 @@ exit
 docker ps
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Lab</h2>
-					<ol>
-						<li>Run an nginx container in detached mode</li>
-						<li>Bind the container port 80 to the host port 80</li>
-						<li>View the default nginx landing page</li>
-						<li>Bonus Points: Append to the default nginx landing page</li>
-						<li>Stop the container and remove it</li>
-					</ol>
-				</section>
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Run an nginx container in detached mode</li>
+            <li>Bind the container port 80 to the host port 80</li>
+            <li>View the default nginx landing page</li>
+            <li>Bonus Points: Append to the default nginx landing page</li>
+            <li>Stop the container and remove it</li>
+          </ol>
+        </section>
 
-				<section>
-					<h1>Questions?</h1>
-				</section>
+        <section>
+          <h1>Questions?</h1>
+        </section>
 
 <!-- ********************************************************************** -->
 
-				<section id="images">
-					<h1 style="color:DeepSkyBlue">Images</h1>
-					<p>Chapter 4</p>
-				</section>
+        <section id="images">
+          <h1 style="color:DeepSkyBlue">Images</h1>
+          <p>Chapter 4</p>
+        </section>
 
-				<section>
-					<h1>Building Blocks for Containers</h1>
-					<p><a href="https://docs.docker.com/reference/builder/" target="_blank">Reference</a>
-					<aside class="notes">
-						<ul>
-							<li>You can kinda sorta think of it like an image for a VM, but really it's a very different beast</li>
-							<li>Layered filesystems</li>
-							<li>Top layer is rw and the layers below are ro</li>
-							<li>The Git analogy but we won't be using commit</li>
-						</ul>
-					</aside>
-				</section>
+        <section>
+          <h1>Building Blocks for Containers</h1>
+          <p><a href="https://docs.docker.com/reference/builder/" target="_blank">Reference</a>
+          <aside class="notes">
+            <ul>
+              <li>You can kinda sorta think of it like an image for a VM, but really it's a very different beast</li>
+              <li>Layered filesystems</li>
+              <li>Top layer is rw and the layers below are ro</li>
+              <li>The Git analogy but we won't be using commit</li>
+            </ul>
+          </aside>
+        </section>
 
-				<section>
-					<h1>Whiteboard!</h1>
-				</section>
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
 
-				<section>
-					<h2>Images</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Images</h2>
+          <pre><code data-trim class="bash">
 docker images
 docker pull ubuntu:12.04
 docker images
 docker search python
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h1>Dockerfile</h1>
-					<aside class="notes">
-						<ul>
-							<li>Uses a basic DSL with instructions for building Docker images</li>
-							<li>Provides a repeatable, transparent, and idempotent mechanism for creating images</li>
-							<li>Each instruction adds a new layer to the image and then commits the image</li>
-						</ul>
-					</aside>
-				</section>
+        <section>
+          <h1>Dockerfile</h1>
+          <aside class="notes">
+            <ul>
+              <li>Uses a basic DSL with instructions for building Docker images</li>
+              <li>Provides a repeatable, transparent, and idempotent mechanism for creating images</li>
+              <li>Each instruction adds a new layer to the image and then commits the image</li>
+            </ul>
+          </aside>
+        </section>
 
-				<section>
-					<h2>Dockerfile Setup</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Dockerfile Setup</h2>
+          <pre><code data-trim class="bash">
 export HUB=my-docker-hub-username
 mkdir static_web
 cd static_web
 touch Dockerfile
 # edit Dockerfile
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Dockerfile</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Dockerfile</h2>
+          <pre><code data-trim class="bash">
 FROM ubuntu:14.04
 MAINTAINER Firstname Lastname "firstname.lastname@example.com"
 RUN apt-get update
@@ -446,23 +446,23 @@ RUN echo "$MESSAGE" >> index.html
 COPY Dockerfile Dockerfile.html
 EXPOSE 80
 CMD nginx -g "daemon off;"
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Images</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Images</h2>
+          <pre><code data-trim class="bash">
 docker build --tag="$HUB/static_web:1.0" .
 docker images
 sed -i "" "s/nginx/ngin/g" Dockerfile
 docker build --tag="$HUB/static_web:1.0" .
 docker run -it last-good-image-id /bin/bash
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Images</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Images</h2>
+          <pre><code data-trim class="bash">
 docker run --detach --publish-all $HUB/static_web:1.0
 docker ps
 HOST=$(docker-machine ip workshop)
@@ -470,40 +470,40 @@ PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp")
 open http://$HOST:$PORT
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Lab</h2>
-					<ol>
-						<li>Create your own Dockerfile in a new dir</li>
-						<li>Build an image</li>
-						<li>Run a container</li>
-						<li>Suggestions: Tomcat, Jekyll, Apache</li>
-						<li>Stop the container and remove it</li>
-					</ol>
-				</section>
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Create your own Dockerfile in a new dir</li>
+            <li>Build an image</li>
+            <li>Run a container</li>
+            <li>Suggestions: Tomcat, Jekyll, Apache, etc. (keep it simple!)</li>
+            <li>Stop the container and remove it</li>
+          </ol>
+        </section>
 
-				<section>
-					<h1>Volumes</h1>
-					<p>Chapter 5, 6</p>
-					<aside class="notes">
-						<ul>
-							<li>Special dirs within one or more containers that bypass the layered filesystem</li>
-							<li>Writes to a volume are made directly and bypass the image</li>
-							<li>Not included when you commit or build an image</li>
-							<li>What are they good for?</li>
-							<li>When you want to work on and test your code in the context of a container</li>
-							<li>Your code changes frequently and you don't want to rebuild your container</li>
-							<li>Share code between multiple containers</li>
-							<li>They also persist even when containers are stopped</li>
-						</ul>
-					</aside>
-				</section>
+        <section>
+          <h1>Volumes</h1>
+          <p>Chapter 5, 6</p>
+          <aside class="notes">
+            <ul>
+              <li>Special dirs within one or more containers that bypass the layered filesystem</li>
+              <li>Writes to a volume are made directly and bypass the image</li>
+              <li>Not included when you commit or build an image</li>
+              <li>What are they good for?</li>
+              <li>When you want to work on and test your code in the context of a container</li>
+              <li>Your code changes frequently and you don't want to rebuild your container</li>
+              <li>Share code between multiple containers</li>
+              <li>They also persist even when containers are stopped</li>
+            </ul>
+          </aside>
+        </section>
 
-				<section>
-					<h2>Volumes</h2>
-					<pre><code data-trim class="bash">
+        <section>
+          <h2>Volumes</h2>
+          <pre><code data-trim class="bash">
 cd static_web
 echo "Set phasers to stun" > index.html
 docker run -d -P --volume=$PWD:/usr/share/nginx/html $HUB/static_web:1.0
@@ -512,69 +512,152 @@ open http://$HOST:$PORT
 # edit index.html and reload your browser
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
-					</code></pre>
-				</section>
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>More Topics</h2>
-					<ol>
-						<li><a href="https://docs.docker.com/articles/dockerfile_best-practices/" target="_blank">Best practices for writing Dockerfiles</a></li>
-						<li><a href="https://docs.docker.com/docker-hub/official_repos/" target="_blank">Official Repositories on Docker Hub</a></li>
-						<li>tices for writing Dockerfiles</a></li>
-						<li><a href="http://tech.paulcz.net/2015/03/optimizing-your-dockerfiles/" target="_blank">Optimizing your Dockerfiles</a> (<a href="https://www.google.com/#q=docker%20image%20optimization" target="_blank">More</a>)</li>
-						<li><a href="https://docs.docker.com/userguide/dockervolumes/#creating-and-mounting-a-data-volume-container" target="_blank">Data Volume Container</a></li>
-					</ol>
-				</section>
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Run your container from the previous lab with a volume to edit something in the container</li>
+            <li>Stop the container and remove it</li>
+          </ol>
+        </section>
 
-				<section>
-					<h1>Questions?</h1>
-				</section>
+        <section>
+          <h2>More Topics</h2>
+          <ol>
+            <li><a href="https://docs.docker.com/articles/dockerfile_best-practices/" target="_blank">Best practices for writing Dockerfiles</a></li>
+            <li><a href="http://tech.paulcz.net/2015/03/optimizing-your-dockerfiles/" target="_blank">Optimizing your Dockerfiles/Images</a> (<a href="https://www.google.com/#q=docker%20image%20optimization" target="_blank">More</a>)</li>
+            <li><a href="https://docs.docker.com/userguide/dockervolumes/#creating-and-mounting-a-data-volume-container" target="_blank">Data Volume Container</a></li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+        </section>
 
 <!-- ********************************************************************** -->
 
-				<section id="conclusion">
-					<h1 style="color:DeepSkyBlue">Conclusion</h1>
-				</section>
+        <section id="hub">
+          <h1 style="color:DeepSkyBlue">Hub</h1>
+          <p>Chapter 4</p>
+        </section>
+
+        <section>
+          <h1>Registry/Storage of Images</h1>
+          <p><a href="https://hub.docker.com/" target="_blank">Site</a>
+          <aside class="notes">
+            <ul>
+              <li>We've been using it all along</li>
+              <li>Register and store your images</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
 
 				<section>
-					<h1>Keep a Crib Sheet</h1>
-				</section>
+          <h1><a href="https://docs.docker.com/docker-hub/official_repos/" target="_blank">Official Repositories</a></h1>
+        </section>
+
+        <section>
+          <h2>Hub</h2>
+          <pre><code data-trim class="bash">
+docker pull cirros
+docker pull cirros:0.3.3
+docker history cirros
+docker pull ewindisch/cirros:latest # caution!
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Hub</h2>
+          <pre><code data-trim class="bash">
+cd static_web
+docker login
+docker push static_web
+docker push $HUB/static_web
+open https://hub.docker.com/
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Push your image from the previous lab</li>
+          </ol>
+        </section>
 
 				<section>
-					<h1>Questions?</h1>
-				</section>
+          <h2>More Topics</h2>
+          <ol>
+						<li><a href="https://docs.docker.com/docker-hub/builds/" target="_blank">Automated Builds</a></li>
+            <li><a href="https://docs.docker.com/docker-trusted-registry/" target="_blank">Docker Trusted Registry</a></li>
+            <li><a href="https://blog.docker.com/2015/08/content-trust-docker-1-8/" target="_blank"></a>Docker Content Trust</li>
+            <li><a href="" target="_blank"></a></li>
+          </ol>
+        </section>
 
-			</div>
+        <section>
+          <h1>Questions?</h1>
+        </section>
 
-		</div>
+<!-- ********************************************************************** -->
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <section id="conclusion">
+          <h1 style="color:DeepSkyBlue">Conclusion</h1>
+        </section>
 
-		<script>
+				<section>
+          <h1>Keep a Crib Sheet</h1>
+        </section>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: false,
+        <section>
+          <h2>More Topics</h2>
+          <ol>
+            <li><a href="https://www.docker.com/docker-kitematic" target="_blank">Kitematic</a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: false,
         progress: false,
         history: true,
         center: true,
 
         transition: 'none', // none/fade/slide/convex/concave/zoom
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
 
-		</script>
+    </script>
 
-	</body>
+  </body>
 </html>
