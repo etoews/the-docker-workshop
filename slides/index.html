@@ -45,7 +45,7 @@
 
 				<section id="welcome">
           <h1>The Docker Workshop</h1>
-					<img src="http://ypereirareis.github.io/assets/images/posts/docker.svg"/>
+					<img src="img/docker.svg"/>
           <h4><a href="http://rack.to/the-docker-workshop">rack.to/the-docker-workshop</a></h4>
 					<p style="font-size: 50%;">Use the arrow keys to navigate</p>
         </section>
@@ -69,7 +69,7 @@
 				<section id="the-docker-book">
           <h1>The Docker Book</h1>
 					<a href="http://www.dockerbook.com/" target="_blank">
-						<img width="250" heigth="auto" src="http://ecx.images-amazon.com/images/I/51VL0BxrnKL._SX381_BO1,204,203,200_.jpg"/></a>
+						<img width="250" heigth="auto" src="img/the-docker-book.jpg"/></a>
 					<p>Sign up for updates!</p>
         </section>
 
@@ -99,15 +99,15 @@
           <h2>Why?</h2>
         </section>
 
-				<section data-background="http://i.telegraph.co.uk/multimedia/archive/03133/the-eye-of-sauron_3133429b.jpg">
+				<section data-background="img/sauron.jpg">
 				</section>
 
 				<section>
 					<h1>Leaner Than VMs</h1>
 					<table>
 						<tr>
-							<td><img src="https://www.docker.com/sites/default/files/what-is-docker-diagram.png" width="400" height="auto"></td>
-							<td><img src="https://www.docker.com/sites/default/files/what-is-vm-diagram.png" width="400" height="auto"></td>
+							<td><img src="img/what-is-docker-diagram.png" width="400" height="auto"></td>
+							<td><img src="img/what-is-vm-diagram.png" width="400" height="auto"></td>
 						</tr>
 						<tr>
 							<td style="text-align:center">VMs</td>
@@ -255,8 +255,9 @@ de
 					<pre><code data-trim class="bash">
 docker info
 curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pem https://$(docker-machine ip workshop):2376/images/json
-# https://github.com/docker/docker/issues/16107
+# :(
 					</code></pre>
+					<p><a href="https://github.com/docker/docker/issues/16107" target="_blank">Error when trying to access API via curl</a></p>
 				</section>
 
 				<section>
