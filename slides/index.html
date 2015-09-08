@@ -386,7 +386,6 @@ docker rm $(docker ps -a -q)
 
         <section>
           <h1>Building Blocks for Containers</h1>
-          <p><a href="https://docs.docker.com/reference/builder/" target="_blank">Reference</a>
           <aside class="notes">
             <ul>
               <li>You can kinda sorta think of it like an image for a VM, but really it's a very different beast</li>
@@ -440,8 +439,8 @@ FROM ubuntu:14.04
 MAINTAINER Firstname Lastname "firstname.lastname@example.com"
 RUN apt-get update
 RUN apt-get install -y nginx
-ENV MESSAGE "Hello Docker"
 WORKDIR /usr/share/nginx/html/
+ENV MESSAGE "Hello Docker"
 RUN echo "$MESSAGE" >> index.html
 COPY Dockerfile Dockerfile.html
 EXPOSE 80
@@ -526,8 +525,11 @@ docker rm $(docker ps -a -q)
         <section>
           <h2>More Topics</h2>
           <ol>
+            <li><a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile Reference</a></li>
             <li><a href="https://docs.docker.com/articles/dockerfile_best-practices/" target="_blank">Best practices for writing Dockerfiles</a></li>
-            <li><a href="http://tech.paulcz.net/2015/03/optimizing-your-dockerfiles/" target="_blank">Optimizing your Dockerfiles/Images</a> (<a href="https://www.google.com/#q=docker%20image%20optimization" target="_blank">More</a>)</li>
+            <li>
+              <a href="http://tech.paulcz.net/2015/03/optimizing-your-dockerfiles/" target="_blank">Optimizing your Dockerfiles/Images</a>
+              (<a href="https://www.google.com/#q=docker%20image%20optimization" target="_blank">More</a>)</li>
             <li><a href="https://docs.docker.com/userguide/dockervolumes/#creating-and-mounting-a-data-volume-container" target="_blank">Data Volume Container</a></li>
           </ol>
         </section>
@@ -558,7 +560,7 @@ docker rm $(docker ps -a -q)
           <h1>Whiteboard!</h1>
         </section>
 
-				<section>
+        <section>
           <h1><a href="https://docs.docker.com/docker-hub/official_repos/" target="_blank">Official Repositories</a></h1>
         </section>
 
@@ -587,15 +589,174 @@ open https://hub.docker.com/
           <h2>Lab</h2>
           <ol>
             <li>Push your image from the previous lab</li>
+            <li>View it online</li>
           </ol>
         </section>
 
-				<section>
+        <section>
           <h2>More Topics</h2>
           <ol>
-						<li><a href="https://docs.docker.com/docker-hub/builds/" target="_blank">Automated Builds</a></li>
+            <li><a href="https://docs.docker.com/docker-hub/builds/" target="_blank">Automated Builds</a></li>
             <li><a href="https://docs.docker.com/docker-trusted-registry/" target="_blank">Docker Trusted Registry</a></li>
             <li><a href="https://blog.docker.com/2015/08/content-trust-docker-1-8/" target="_blank"></a>Docker Content Trust</li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+        </section>
+
+<!-- ********************************************************************** -->
+
+        <section id="compose">
+          <h1 style="color:DeepSkyBlue">Compose</h1>
+          <p>Chapter 7</p>
+        </section>
+
+        <section>
+          <h1>Simple Container Orchestration</h1>
+          <aside class="notes">
+            <ul>
+              <li>Up to now we've only been working with 1 container at a time</li>
+              <li>Define a set of containers and their runtime properties</li>
+              <li>Defined in YAML files</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
+
+        <section>
+          <h2>app.py</h2>
+          <pre><code data-trim class="bash">
+cd ..
+mkdir composeapp
+cd composeapp
+touch app.py
+# edit app.py
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>app.py</h2>
+          <pre><code data-trim class="python">
+from flask import Flask
+from redis import Redis
+import os
+
+app = Flask(__name__)
+redis = Redis(host="redis", port=6379)
+
+@app.route('/')
+def hello():
+    redis.incr('hits')
+    return 'Hello Docker Book reader! I have been seen {0} times'.format(redis.get('hits'))
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>requirements.txt</h2>
+          <pre><code data-trim class="bash">
+touch requirements.txt
+# edit requirements.txt
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>requirements.txt</h2>
+          <pre><code data-trim class="bash">
+flask
+redis
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Dockerfile</h2>
+          <pre><code data-trim class="bash">
+touch Dockerfile
+# edit Dockerfile
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Dockerfile</h2>
+          <pre><code data-trim class="bash">
+FROM python:2.7
+MAINTAINER Firstname Lastname "firstname.lastname@example.com"
+ENV REFRESHED_AT 2014-08-01
+
+ADD . /composeapp
+
+WORKDIR /composeapp
+
+RUN pip install -r requirements.txt
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>docker-compose.yml</h2>
+          <pre><code data-trim class="bash">
+touch docker-compose.yml
+# edit docker-compose.yml
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>docker-compose.yml</h2>
+          <pre><code data-trim class="yaml">
+web:
+  image: $HUB/composeapp
+  command: python app.py
+  ports:
+   - "5000:5000"
+  volumes:
+   - .:/composeapp
+  links:
+   - redis
+redis:
+  image: redis
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Compose</h2>
+          <pre><code data-trim class="bash">
+docker build -t="$HUB/composeapp" .
+docker-compose
+docker-compose up
+# Ctrl+C
+docker-compose up -d
+open http://$HOST:5000
+docker-compose ps
+docker-compose stop
+docker-compose rm
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Use memcached instead of redis</li>
+            <li>Does anything in the Dockerfile need to change?</li>
+            <li>What needs to change in the docker-compose.yml file?</li>
+            <li>In requirements.txt, add `python-memcached` and remove redis</li>
+            <li>The new <a href="https://gist.github.com/everett-toews/154d277fe74c18934824" target="_blank">app.py</a> (but you need to replace ???)</li>
+            <li>Does the image need to be rebuilt?</li>
+            <li>Does the image need to tagged as a new version?</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>More Topics</h2>
+          <ol>
+            <li><a href="https://developer.rackspace.com/blog/dev-to-deploy-with-docker-machine-and-compose/" target="_blank">From Local Development to Remote Deployment with Docker Machine and Compose</a></li>
+            <li><a href="" target="_blank"></a></li>
+            <li><a href="" target="_blank"></a></li>
             <li><a href="" target="_blank"></a></li>
           </ol>
         </section>
@@ -610,7 +771,11 @@ open https://hub.docker.com/
           <h1 style="color:DeepSkyBlue">Conclusion</h1>
         </section>
 
-				<section>
+        <section>
+          <h1>Work Through the Book</h1>
+        </section>
+
+        <section>
           <h1>Keep a Crib Sheet</h1>
         </section>
 
