@@ -97,10 +97,16 @@
         </section>
 
         <section>
-          <h2>Why?</h2>
+          <h1>Why?</h1>
         </section>
 
         <section data-background="img/sauron.jpg">
+        </section>
+
+        <section data-background="img/enterprise.png">
+        </section>
+
+        <section data-background="img/docker-docker-docker.png">
         </section>
 
         <section>
@@ -244,14 +250,17 @@ de
           <aside class="notes">
             <ul>
               <li>Can kind of think of it like Cloud Servers/Nova</li>
-              <li>Port 2376</li>
-              <li>API</li>
             </ul>
           </aside>
         </section>
 
         <section>
           <h1>Docker API</h1>
+          <aside class="notes">
+            <ul>
+              <li>Port 2376</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -322,7 +331,7 @@ docker run --interactive --tty ubuntu /bin/bash
           <pre><code data-trim class="bash">
 uname -a
 hostname
-more /cat/hosts
+more /etc/hosts
 ip a
 ps -aux
 echo "Hello Docker" > README.txt
@@ -458,13 +467,19 @@ touch Dockerfile
           <pre><code data-trim class="bash">
 FROM ubuntu:14.04
 MAINTAINER Firstname Lastname "firstname.lastname@example.com"
+
 RUN apt-get update
 RUN apt-get install -y nginx
-WORKDIR /usr/share/nginx/html/
+
 ENV MESSAGE "Hello Docker"
+
+WORKDIR /usr/share/nginx/html/
+
 RUN echo "$MESSAGE" >> index.html
 COPY Dockerfile Dockerfile.html
+
 EXPOSE 80
+
 CMD nginx -g "daemon off;"
           </code></pre>
         </section>
@@ -496,12 +511,26 @@ docker rm $(docker ps -a -q)
         <section>
           <h2>Lab</h2>
           <ol>
-            <li>Create your own Dockerfile in a new dir</li>
+            <li>Create a Dockerfile in a new dir</li>
+            <li>Dockerize Jenkins <span style="font-family: 'Courier New', Courier, monospace;">FROM ubuntu:14.04</span></li>
+            <ol>
+                <li>Update</li>
+                <li>Install openjdk-7-jre-headless</li>
+                <li>Install wget</li>
+                <li>Download the <a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank">WAR file</a></li>
+                <li>Expose port 8080</li>
+                <li>Run the WAR file with <span style="font-family: 'Courier New', Courier, monospace;">java -jar jenkins.war</span></li>
+            </ol>
             <li>Build an image</li>
             <li>Run a container</li>
-            <li>Suggestions: Tomcat, Jekyll, Apache, etc. (keep it simple!)</li>
             <li>Stop the container and remove it</li>
+            <li>Tip: Start with only the <span style="font-family: 'Courier New', Courier, monospace;">FROM ubuntu:14.04</span>, then do <span style="font-family: 'Courier New', Courier, monospace;">docker build --tag="$HUB/jenkins:0.1"</span> and <span style="font-family: 'Courier New', Courier, monospace;">docker run -it $HUB/jenkins:0.1 /bin/bash</span></li>
+            <li>Copy what you do into your Dockerfile</li>
           </ol>
+        </section>
+
+        <section>
+          <h1><a href="https://gist.github.com/everett-toews/0cd58af59f5e3bac5ba5" target="_blank">Answer</a></h1>
         </section>
 
         <section>
@@ -524,7 +553,7 @@ docker rm $(docker ps -a -q)
         <section>
           <h2>Volumes</h2>
           <pre><code data-trim class="bash">
-cd static_web
+# in static_web dir
 echo "Set phasers to stun" > index.html
 docker run -d -P --volume=$PWD:/usr/share/nginx/html $HUB/static_web:1.0
 PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "80/tcp") 0).HostPort}}' $(docker ps -q))
@@ -539,6 +568,7 @@ docker rm $(docker ps -a -q)
           <h2>Lab</h2>
           <ol>
             <li>Run your container from the previous lab with a volume to edit something in the container</li>
+            <li>Hint: Anything in <span style="font-family: 'Courier New', Courier, monospace;">/root/.jenkins/userContent</span> is served at http://$HOST:$PORT/userContent/</li>
             <li>Stop the container and remove it</li>
           </ol>
         </section>
@@ -598,10 +628,10 @@ docker pull ewindisch/cirros:latest # caution!
         <section>
           <h2>Hub</h2>
           <pre><code data-trim class="bash">
-cd static_web
 docker login
+docker images
 docker push static_web
-docker push $HUB/static_web
+docker push $HUB/static_web:1.0
 open https://hub.docker.com/
           </code></pre>
         </section>
@@ -620,7 +650,7 @@ open https://hub.docker.com/
             <li><a href="https://docs.docker.com/v1.7/reference/api/docker-io_api/" target="_blank">API Reference</a></li>
             <li><a href="https://docs.docker.com/docker-hub/builds/" target="_blank">Automated Builds</a></li>
             <li><a href="https://docs.docker.com/docker-trusted-registry/" target="_blank">Docker Trusted Registry</a></li>
-            <li><a href="https://blog.docker.com/2015/08/content-trust-docker-1-8/" target="_blank"></a>Docker Content Trust</li>
+            <li><a href="https://blog.docker.com/2015/08/content-trust-docker-1-8/" target="_blank">Docker Content Trust</a></li>
           </ol>
         </section>
 
@@ -767,7 +797,7 @@ docker-compose rm
             <li>Use memcached instead of redis</li>
             <li>Does anything in the Dockerfile need to change?</li>
             <li>What needs to change in the docker-compose.yml file?</li>
-            <li>In requirements.txt, add `python-memcached` and remove redis</li>
+            <li>In requirements.txt, replace redis with python-memcached</li>
             <li>The new <a href="https://gist.github.com/everett-toews/154d277fe74c18934824" target="_blank">app.py</a> (but you need to replace ???)</li>
             <li>Does the image need to be rebuilt?</li>
             <li>Does the image need to tagged as a new version?</li>
