@@ -60,6 +60,7 @@
               <li>More knowledge in the audience than there is on stage</li>
               <li>Being up here is learning for me too</li>
               <li>Some stuff I just haven't used so it's omitted, call that out</li>
+              <li>I am aiming you at Amphora/Swarm</li>
               <li>File issues or send PRs!</li>
               <li>Pair up</li>
             </ul>
@@ -77,8 +78,8 @@
           <span style="white-space: nowrap;">
             <h1>Agenda</h1>
             <ol>
-              <li><a href="#/benefits">Benefits</a></li>
               <li><a href="#/machine">Machine</a></li>
+              <li><a href="#/benefits">Benefits</a></li>
               <li><a href="#/daemon">Daemon</a></li>
               <li><a href="#/client">Client</a></li>
               <li><a href="#/images">Images</a></li>
@@ -87,6 +88,74 @@
               <li><a href="#/conclusion">Conclusion</a></li>
             </ol>
           </span>
+        </section>
+
+<!-- ********************************************************************** -->
+
+        <section id="machine">
+          <h1 style="color:DeepSkyBlue">Machine</h1>
+          <aside class="notes">
+            <ul>
+              <li>Not covered in the book :(</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Creates Docker Hosts</h1>
+          <aside class="notes">
+            <ul>
+              <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
+              <li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
+              <li>A "machine" is the combination of a Docker host and a configured client.</li>
+              <li>A great learning/experimentation tool</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h1>Whiteboard!</h1>
+        </section>
+
+        <section>
+          <h2>Docker Environment</h2>
+          <pre><code data-trim class="bash">
+alias de="env | grep DOCKER_"
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Docker Machine</h2>
+          <pre><code data-trim class="bash">
+docker-machine
+docker-machine ls
+docker-machine create --driver virtualbox foo
+docker-machine ls
+docker-machine env foo
+de
+eval "$(docker-machine env foo)"
+de
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Lab</h2>
+          <ol>
+            <li>Delete foo</li>
+            <li>Create workshop</li>
+            <li>Set workshop as your Docker environment</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>More Topics</h2>
+          <ol>
+            <li><a href="https://docs.docker.com/machine/reference/" target="_blank">CLI Reference</a></li>
+          </ol>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
         </section>
 
 <!-- ********************************************************************** -->
@@ -158,6 +227,10 @@ docker run \
         </section>
 
         <section>
+          <h1>Nicely Composable</h1>
+        </section>
+
+        <section>
           <h1>Process Isolation</h1>
         </section>
 
@@ -167,74 +240,6 @@ docker run \
 
         <section>
           <h1>More?</h1>
-          <h1>Questions?</h1>
-        </section>
-
-<!-- ********************************************************************** -->
-
-        <section id="machine">
-          <h1 style="color:DeepSkyBlue">Machine</h1>
-          <aside class="notes">
-            <ul>
-              <li>Not covered in the book :(</li>
-            </ul>
-          </aside>
-        </section>
-
-        <section>
-          <h1>Creates Docker Hosts</h1>
-          <aside class="notes">
-            <ul>
-              <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
-              <li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
-              <li>A "machine" is the combination of a Docker host and a configured client.</li>
-              <li>A great learning/experimentation tool</li>
-            </ul>
-          </aside>
-        </section>
-
-        <section>
-          <h1>Whiteboard!</h1>
-        </section>
-
-        <section>
-          <h2>Docker Environment</h2>
-          <pre><code data-trim class="bash">
-alias de="env | grep DOCKER_"
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Docker Machine</h2>
-          <pre><code data-trim class="bash">
-docker-machine
-docker-machine ls
-docker-machine create --driver virtualbox foo
-docker-machine ls
-docker-machine env foo
-de
-eval "$(docker-machine env foo)"
-de
-          </code></pre>
-        </section>
-
-        <section>
-          <h2>Lab</h2>
-          <ol>
-            <li>Delete foo</li>
-            <li>Create workshop</li>
-            <li>Set workshop as your Docker environment</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>More Topics</h2>
-          <ol>
-            <li><a href="https://docs.docker.com/machine/reference/" target="_blank">CLI Reference</a></li>
-          </ol>
-        </section>
-
-        <section>
           <h1>Questions?</h1>
         </section>
 
@@ -836,9 +841,18 @@ docker-compose rm
           <h2>More Topics</h2>
           <ol>
             <li><a href="https://www.docker.com/docker-kitematic" target="_blank">Kitematic</a></li>
-            <li><a href="https://docs.docker.com/reference/logging/overview/" target="_blank">Logging</a> (Administrative)</li>
+            <li><a href="https://docs.docker.com/reference/logging/overview/" target="_blank">Logging</a> (Administrative/DevOps)</li>
             <li><a href="https://docs.docker.com/articles/networking/" target="_blank">Networking</a> (Administrative)</li>
             <li><a href="https://docs.docker.com/articles/security/" target="_blank">Security</a> (Administrative)</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Value Add Docs</h2>
+          <ol>
+            <li>Data</li>
+            <li>Docs use Amphora by Default</li>
+            <li>More?</li>
           </ol>
         </section>
 
