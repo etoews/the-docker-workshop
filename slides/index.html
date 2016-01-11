@@ -124,10 +124,6 @@
         </section>
 
         <section>
-          <h1>Whiteboard!</h1>
-        </section>
-
-        <section>
           <h2>Docker Environment</h2>
           <pre><code data-trim class="bash">
 alias de="env | grep DOCKER_"
@@ -262,10 +258,6 @@ docker run \
         </section>
 
         <section>
-          <h1>Whiteboard!</h1>
-        </section>
-
-        <section>
           <h2>Docker Daemon</h2>
           <pre><code data-trim class="bash">
 docker info
@@ -305,10 +297,6 @@ curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pe
             <li>Commands for working with volumes</li>
             <li>etc</li>
           </ul>
-        </section>
-
-        <section>
-          <h1>Whiteboard!</h1>
         </section>
 
         <section>
@@ -429,10 +417,6 @@ docker rm $(docker ps -a -q)
             <li>Create an account on <a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank">Docker Hub</a>.</li>
             <li>We'll dive into Docker Hub later.</li>
           </ul>
-        </section>
-
-        <section>
-          <h1>Whiteboard!</h1>
         </section>
 
         <section>
@@ -608,10 +592,6 @@ docker rm $(docker ps -a -q)
         </section>
 
         <section>
-          <h1>Whiteboard!</h1>
-        </section>
-
-        <section>
           <h1><a href="https://docs.docker.com/docker-hub/official_repos/" target="_blank">Official Repositories</a></h1>
         </section>
 
@@ -674,10 +654,6 @@ open https://hub.docker.com/r/$HUB/static_web/
             <li>Defined in YAML files</li>
             <li>My favourite so far</li>
           </ul>
-        </section>
-
-        <section>
-          <h1>Whiteboard!</h1>
         </section>
 
         <section>
@@ -782,7 +758,7 @@ redis:
 docker build -t="$HUB/composeapp" .
 docker-compose
 docker-compose up
-# Ctrl+C after the console messages stop 
+# Ctrl+C after the console messages stop
 docker-compose up -d
 open http://$HOST:5000
 docker-compose ps
