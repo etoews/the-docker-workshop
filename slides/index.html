@@ -52,7 +52,7 @@
 
         <section id="goal">
           <h1>Goal</h1>
-          <p>Give you enough knowledge about containers/Docker in general and Amphora in particular to confidently create content for all of it. In doing so, give you the basis for more self-directed learning.</p>
+          <p>To gain knowledge about the Docker ecosystem in general. This is a prerequisite to being able to confidently support and create content for <a href="https://getcarina.com/" target="_blank">Carina</a>.</p>
           <aside class="notes">
             <ul>
               <li>Going broad. Looking at the whole ecosystem. It will be up to you to go deep.</li>
@@ -78,6 +78,7 @@
           <span style="white-space: nowrap;">
             <h1>Agenda</h1>
             <ol>
+              <li><a href="#/toolbox">Toolbox</a></li>
               <li><a href="#/machine">Machine</a></li>
               <li><a href="#/benefits">Benefits</a></li>
               <li><a href="#/daemon">Daemon</a></li>
@@ -92,6 +93,17 @@
 
 <!-- ********************************************************************** -->
 
+        <section id="toolbox">
+          <h1 style="color:DeepSkyBlue">Toolbox</h1>
+        </section>
+
+        <section>
+          <h1>Installs Docker Locally</h1>
+          <ul>
+            <li>Start at <a href="https://www.docker.com/docker-toolbox" target="_blank">Docker Toolbox</a> and follow the getting started guide for your OS.</li>
+          </ul>
+        </section>
+
         <section id="machine">
           <h1 style="color:DeepSkyBlue">Machine</h1>
           <aside class="notes">
@@ -103,14 +115,12 @@
 
         <section>
           <h1>Creates Docker Hosts</h1>
-          <aside class="notes">
-            <ul>
-              <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
-              <li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
-              <li>A "machine" is the combination of a Docker host and a configured client.</li>
-              <li>A great learning/experimentation tool</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Machine lets you create Docker hosts on your computer, on cloud providers, and inside your own data center.</li>
+            <li>It automatically creates hosts, installs Docker on them, then configures the docker client to talk to them.</li>
+            <li>A "machine" is the combination of a Docker host and a configured client.</li>
+            <li>A great learning/experimentation tool</li>
+          </ul>
         </section>
 
         <section>
@@ -163,19 +173,6 @@ de
         <section id="benefits">
           <h1 style="color:DeepSkyBlue">Benefits</h1>
           <p>Chapter 1</p>
-        </section>
-
-        <section>
-          <h1>Why?</h1>
-        </section>
-
-        <section data-background="img/sauron.jpg">
-        </section>
-
-        <section data-background="img/enterprise.png">
-        </section>
-
-        <section data-background="img/docker-docker-docker.png">
         </section>
 
         <section>
@@ -252,20 +249,16 @@ docker run \
 
         <section>
           <h1>Runs Docker Containers</h1>
-          <aside class="notes">
-            <ul>
-              <li>Can kind of think of it like Cloud Servers/Nova</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Can kind of think of it like Cloud Servers/Nova for containers</li>
+          </ul>
         </section>
 
         <section>
           <h1>Docker API</h1>
-          <aside class="notes">
-            <ul>
-              <li>Port 2376</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Runs on port 2376</li>
+          </ul>
         </section>
 
         <section>
@@ -277,7 +270,6 @@ docker run \
           <pre><code data-trim class="bash">
 docker info
 curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pem https://$(docker-machine ip workshop):2376/images/json
-# :(
           </code></pre>
           <p><a href="https://github.com/docker/docker/issues/16107" target="_blank">Error when trying to access API via curl</a></p>
         </section>
@@ -289,8 +281,7 @@ curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pe
         <section>
           <h2>More Topics</h2>
           <ol>
-            <li><a href="https://docs.docker.com/reference/api/docker_remote_api/" target="_blank">API Reference</a> (switching to Swagger?)</li>
-            <li><a href="https://docs.docker.com/reference/commandline/daemon/" target="_blank">docker daemon?</a></li>
+            <li><a href="https://docs.docker.com/reference/api/docker_remote_api/" target="_blank">API Reference</a></li>
           </ol>
         </section>
 
@@ -307,13 +298,13 @@ curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pe
 
         <section>
           <h1>Controls the Docker Daemon</h1>
-          <aside class="notes">
-            <ul>
-              <li>CLI for the API</li>
-              <li>Commands for working with containers</li>
-              <li>Commands for working with images</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>CLI for the API</li>
+            <li>Commands for working with containers</li>
+            <li>Commands for working with images</li>
+            <li>Commands for working with volumes</li>
+            <li>etc</li>
+          </ul>
         </section>
 
         <section>
@@ -326,8 +317,8 @@ curl --insecure --cert $DOCKER_CERT_PATH/cert.pem --key $DOCKER_CERT_PATH/key.pe
 de
 docker
 docker version
-docker ps # why "ps"?
-docker run --interactive --tty ubuntu /bin/bash
+docker ps # "ps" because it can be thought of like the Linux ps command
+docker run --interactive --tty ubuntu:14.04 /bin/bash
           </code></pre>
         </section>
 
@@ -340,6 +331,7 @@ more /etc/hosts
 ip a
 ps -aux
 echo "Hello Docker" > README.txt
+more README.txt
 exit
           </code></pre>
         </section>
@@ -353,6 +345,7 @@ docker ps --all --quiet
 docker start $(docker ps -a -q)
 docker ps
 docker attach $(docker ps -q)
+# Press enter if you just get a blank line
 more README.txt
 exit
           </code></pre>
@@ -362,8 +355,8 @@ exit
           <h2>Client</h2>
           <pre><code data-trim class="bash">
 docker ps
-docker run -it ubuntu /bin/bash # -it?
-more README.txt
+docker run -it ubuntu:14.04 /bin/bash # what does -it do?
+more README.txt # No README.txt because it's a new container
 exit
           </code></pre>
         </section>
@@ -380,9 +373,10 @@ docker ps -a
         <section>
           <h2>Client</h2>
           <pre><code data-trim class="bash">
-docker run --detach --publish 8080:2368 ghost
+docker run --detach --publish 8080:2368 ghost:0.7
 open http://$(docker-machine ip workshop):8080
 docker exec -it $(docker ps -q) /bin/bash # look around
+ls
 exit
 docker ps
 docker stop $(docker ps -a -q)
@@ -421,14 +415,20 @@ docker rm $(docker ps -a -q)
 
         <section>
           <h1>Building Blocks for Containers</h1>
-          <aside class="notes">
-            <ul>
-              <li>You can kinda sorta think of it like an image for a VM, but really it's a very different beast</li>
-              <li>Layered filesystems</li>
-              <li>Top layer is rw and the layers below are ro</li>
-              <li>The Git analogy but we won't be using commit</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>You can kinda sorta think of it like an image for a VM, but really it's a very different beast</li>
+            <li>Layered filesystems</li>
+            <li>Top layer is rw and the layers below are ro</li>
+            <li>There's an analogy to Git but we won't be using <code>docker commit</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Docker Hub</h1>
+          <ul>
+            <li>Create an account on <a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war" target="_blank">Docker Hub</a>.</li>
+            <li>We'll dive into Docker Hub later.</li>
+          </ul>
         </section>
 
         <section>
@@ -439,7 +439,7 @@ docker rm $(docker ps -a -q)
           <h2>Images</h2>
           <pre><code data-trim class="bash">
 docker images
-docker pull ubuntu:12.04
+docker pull alpine:3.3
 docker images
 docker search python
           </code></pre>
@@ -447,13 +447,11 @@ docker search python
 
         <section>
           <h1>Dockerfile</h1>
-          <aside class="notes">
-            <ul>
-              <li>Uses a basic DSL with instructions for building Docker images</li>
-              <li>Provides a repeatable, transparent, and idempotent mechanism for creating images</li>
-              <li>Each instruction adds a new layer to the image and then commits the image</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Uses a basic DSL with instructions for building Docker images</li>
+            <li>Provides a repeatable, transparent, and idempotent mechanism for creating images</li>
+            <li>Each instruction adds a new layer to the image and then commits the image</li>
+          </ul>
         </section>
 
         <section>
@@ -497,6 +495,7 @@ docker images
 sed -i "" "s/nginx/ngin/g" Dockerfile
 docker build --tag="$HUB/static_web:1.0" .
 docker run -it last-good-image-id /bin/bash
+exit
           </code></pre>
         </section>
 
@@ -541,18 +540,16 @@ docker rm $(docker ps -a -q)
         <section>
           <h1>Volumes</h1>
           <p>Chapter 5, 6</p>
-          <aside class="notes">
-            <ul>
-              <li>Special dirs within one or more containers that bypass the layered filesystem</li>
-              <li>Writes to a volume are made directly and bypass the image</li>
-              <li>Not included when you commit or build an image</li>
-              <li>What are they good for?</li>
-              <li>When you want to work on and test your code in the context of a container</li>
-              <li>Your code changes frequently and you don't want to rebuild your container</li>
-              <li>Share code between multiple containers</li>
-              <li>They also persist even when containers are stopped</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Special dirs within one or more containers that bypass the layered filesystem</li>
+            <li>Writes to a volume are made directly and bypass the image</li>
+            <li>Not included when you commit or build an image</li>
+            <li>What are they good for?</li>
+            <li>When you want to work on and test your code in the context of a container</li>
+            <li>Your code changes frequently and you don't want to rebuild your container</li>
+            <li>Share code between multiple containers</li>
+            <li>They also persist even when containers are stopped</li>
+          </ul>
         </section>
 
         <section>
@@ -603,13 +600,11 @@ docker rm $(docker ps -a -q)
 
         <section>
           <h1>Registry/Storage of Images</h1>
-          <p><a href="https://hub.docker.com/" target="_blank">Site</a>
-          <aside class="notes">
-            <ul>
-              <li>We've been using it all along</li>
-              <li>Register and store your images</li>
-            </ul>
-          </aside>
+          <p><a href="https://hub.docker.com/" target="_blank">Docker Hub</a>
+          <ul>
+            <li>Register and store your images</li>
+            <li>We've been using it all along</li>
+          </ul>
         </section>
 
         <section>
@@ -624,9 +619,10 @@ docker rm $(docker ps -a -q)
           <h2>Hub</h2>
           <pre><code data-trim class="bash">
 docker pull cirros
-docker pull cirros:0.3.3
+docker pull cirros:0.3.4
 docker history cirros
-docker pull ewindisch/cirros:latest # caution!
+docker pull ewindisch/cirros:latest
+# caution! always be wary of who/where you are pulling images from
           </code></pre>
         </section>
 
@@ -637,7 +633,7 @@ docker login
 docker images
 docker push static_web
 docker push $HUB/static_web:1.0
-open https://hub.docker.com/
+open https://hub.docker.com/r/$HUB/static_web/
           </code></pre>
         </section>
 
@@ -672,14 +668,12 @@ open https://hub.docker.com/
 
         <section>
           <h1>Simple Container Orchestration</h1>
-          <aside class="notes">
-            <ul>
-              <li>Up to now we've only been working with 1 container at a time</li>
-              <li>Define a set of containers and their runtime properties</li>
-              <li>Defined in YAML files</li>
-              <li>My favourite so far</li>
-            </ul>
-          </aside>
+          <ul>
+            <li>Up to now we've only been working with 1 container at a time</li>
+            <li>Define a set of containers and their runtime properties</li>
+            <li>Defined in YAML files</li>
+            <li>My favourite so far</li>
+          </ul>
         </section>
 
         <section>
@@ -766,6 +760,7 @@ touch docker-compose.yml
 
         <section>
           <h2>docker-compose.yml</h2>
+          <p>Replace <code>$HUB</code> with your Docker Hub username below.</p>
           <pre><code data-trim class="yaml">
 web:
   image: $HUB/composeapp
@@ -787,7 +782,7 @@ redis:
 docker build -t="$HUB/composeapp" .
 docker-compose
 docker-compose up
-# Ctrl+C
+# Ctrl+C after the console messages stop 
 docker-compose up -d
 open http://$HOST:5000
 docker-compose ps
@@ -844,15 +839,6 @@ docker-compose rm
             <li><a href="https://docs.docker.com/reference/logging/overview/" target="_blank">Logging</a> (Administrative/DevOps)</li>
             <li><a href="https://docs.docker.com/articles/networking/" target="_blank">Networking</a> (Administrative)</li>
             <li><a href="https://docs.docker.com/articles/security/" target="_blank">Security</a> (Administrative)</li>
-          </ol>
-        </section>
-
-        <section>
-          <h2>Value Add Docs</h2>
-          <ol>
-            <li>Data</li>
-            <li>Docs use Amphora by Default</li>
-            <li>More?</li>
           </ol>
         </section>
 
